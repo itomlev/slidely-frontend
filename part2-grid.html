@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slidely Frontend - Part 2 Grid</title>
+
+	<style>
+		.container {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, 300px);
+			grid-auto-rows: 169px;
+			grid-auto-flow: row;
+			grid-gap: 10px;
+			justify-content: center;
+			margin: 0 auto;
+		}
+		.box {
+			width: 300px;
+			background: #ccc;
+		}
+		.large {
+			width: 610px;
+			grid-row-end: span 2;
+			grid-column-end: span 2;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box large"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box large"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</div>
+
+
+</body>
+</html>

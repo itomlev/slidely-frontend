@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slidely Frontend - Part 1</title>
+	<style>
+		#test_2 {
+			background-image: url(https://image.freepik.com/free-psd/abstract-background-design_1297-73.jpg);
+			display: none;
+		}
+	</style>
+	<script>
+		x = 1;
+		function bar() {
+			this.x = 2;
+			console.log(x);
+			return x;
+		}
+		var foo = new bar();
+		alert(foo.x);
+	</script>
+</head>
+<body>
+
+<div id="test_1">
+	<div id="test_2"></div>
+</div>
+
+</body>
+</html>

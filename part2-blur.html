@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slidely Frontend - Part 2 Blur</title>
+
+	<style>
+		.image {
+			text-align: center;
+			position: relative;
+			width: 1000px;
+			margin: 0 auto;
+			overflow: hidden;
+			cursor: move;
+		}
+		.image img {
+			filter: blur(2px);
+			width: 100%;
+		}
+		.image:before {
+			display: block;
+			width: 100%;
+			height: 100%;
+			content: '';
+			position: absolute;
+			z-index: 1;
+			background: rgba(0,0,0,.2);
+		}
+		.sharp-glass {
+			display: block;
+			opacity: 0;
+			width: 60px;
+			height: 60px;
+			border-radius: 100%;
+			border: 1px solid #fff;
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			background-repeat: no-repeat;
+			background-size: 1000px;
+		}
+	</style>
+
+</head>
+<body>
+
+<div class="image">
+	<img src="http://www.planwallpaper.com/static/images/desktop-background.jpg" alt="">
+	<div class="sharp-glass"></div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+	$(function() {
+		$(document).on('mousemove', '.image', function(e) {
+			var offset = $(this).offset();
+			var elementX = e.pageX - offset.left;
+			var elementY = e.pageY - offset.top;
+			var imgSrc = $(this).find('img').attr('src');
+			$('.sharp-glass').css({
+				'opacity': 1,
+				'top': elementY + 'px',
+				'left': elementX + 'px',
+				'background-position': '-'+(elementX) + 'px ' + '-'+(elementY) + 'px',
+				'background-image': 'url('+imgSrc+')'
+			});
+		});
+		$(document).on('mouseout', '.image', function(e) {
+			$('.sharp-glass').css({
+				'opacity': 0
+			});
+		});
+	});
+</script>
+</body>
+</html>
